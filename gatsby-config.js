@@ -1,11 +1,13 @@
 const { apiEndpoint } = require('./prismic-config');
-var repo = /([^\/]+)\.prismic\.io\/graphql/.exec(apiEndpoint);
+const queries = require("./src/utils/algolia")
+var repo = /([^\/]+)\.prismic\.io\/graphql/.exec(apiEndpoint)
+require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
     title: `Gatsby Prismic Blog`,
     description: `Blog example for Gatsby & Prismic`,
-    author: `@levimykel`,
+    author: `@crduffy`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -45,6 +47,17 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        indexName: process.env.ALGOLIA_INDEX_NAME, // overrides main index name, optional
+        queries,
+        chunkSize: 10000, // default: 1000
+      },
+    },
+    `gatsby-plugin-styled-components`,
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // 'gatsby-plugin-offline',

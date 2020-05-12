@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import { StaticQuery, graphql } from 'gatsby'
 import { Helmet } from 'react-helmet'
 import Footer from './Footer'
+import Search from '../search'
 import '../../stylesheets/main.scss'
 
 export default props => (
@@ -40,6 +41,7 @@ const Layout = ( props ) => {
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
       </Helmet>
       <main>
+         <Search />
         { props.children }
       </main>
       <Footer/>
