@@ -94,10 +94,10 @@ function Hit(props) {
     return (
         <div>
             <div className="hit-name">
-                title: { RichText.asText(props.hit.title).length !== 0 ? RichText.asText(props.hit.title) : defaultTitle }
+                <a href={"/blog/" + props.hit.uid}>{ RichText.asText(props.hit.title).length !== 0 ? RichText.asText(props.hit.title) : defaultTitle }</a>
             </div>
             <div className="hit-description">
-                body: <Highlight attribute="body" hit={props.hit} /> {firstParagraph(props.hit)}
+                <Highlight attribute="body" hit={props.hit} /> {firstParagraph(props.hit)}
             </div>
 
         </div>
