@@ -78,7 +78,7 @@ const queries = [
         transformer: ({ data }) => data.prismic.allPosts.edges.map(edge => edge.node).map(mapMeta),
 
         settings: {
-            // optional, any index settings
+            attributesForFaceting: ['tags'],
         },
         //matchFields: ['uid', 'modified'], // Array<String> overrides main match fields, optional
     },
