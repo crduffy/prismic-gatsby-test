@@ -55,7 +55,8 @@ const BlogHomeHead = ({ home }) => {
       <div className="blog-avatar" style={ avatar }>
       </div>
       <h1>{ RichText.asText(home.headline) }</h1>
-      <p className="blog-description">{ RichText.asText(home.description) }</p>
+      <p className="blog-description"><a href="/contact/">holla at</a> { RichText.asText(home.description) } </p>
+
     </div>
   );
 };
